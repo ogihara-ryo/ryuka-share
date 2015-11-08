@@ -1,0 +1,14 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - db/schema.rb
+    - bin/**/*
+
+Metrics/LineLength:
+  Max: 128
+
+Documentation:
+  Enabled: false
+
+AsciiComments:
+  Enabled: false
