@@ -40,6 +40,15 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # ファイルシステムの変更イベントを監視する
+  gem 'guard'
+
+  # ファイルの保存時に自動でrubocopを実行する
+  gem 'guard-rubocop'
+
+  # Guard に OS の通知センターを利用させる
+  gem 'terminal-notifier-guard'
 end
 
 group :development do
