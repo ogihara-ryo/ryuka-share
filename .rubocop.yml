@@ -10,5 +10,8 @@ Metrics/LineLength:
 Documentation:
   Enabled: false
 
+Style/BlockComments:
+  Enabled: false
+
 AsciiComments:
   Enabled: false
