@@ -47,17 +47,40 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+  # RSpec を Spring 上で起動する
+  gem 'spring-commands-rspec'
+
   # ファイルシステムの変更イベントを監視する
   gem 'guard'
 
   # ファイルの保存時に自動でrubocopを実行する
   gem 'guard-rubocop'
 
+  # ファイルの保存時に自動で rspec を実行する
+  gem 'guard-rspec'
+
   # Guard に OS の通知センターを利用させる
   gem 'terminal-notifier-guard'
+
+  # テストフレームワーク
+  gem 'rspec-rails'
 end
 
 group :development do
   # コーディングルールの準拠チェック
   gem 'rubocop'
+end
+
+group :test do
+  # ユーザーとアプリケーションのやり取りをシミュレートする(フィーチャーテスト)
+  gem 'capybara'
+
+  # RSpec でのテストを強力にサポートしてくれるマッチャー集
+  gem 'shoulda-matchers', require: false
+
+  # コードのカバレッジを計測する
+  gem 'simplecov', require: false
+
+  # テスト時にデータベースを綺麗にする
+  gem 'database_cleaner'
 end
