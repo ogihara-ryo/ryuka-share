@@ -1,0 +1,22 @@
+h1 Users
+
+table
+  thead
+    tr
+      th id
+      th signin_id
+      th password
+      th admin
+      th created_at
+      th update_at
+
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.id
+        td = user.id
+        td = user.signin_id
+        td = user.password
+        td = user.admin
+        td = user.created_at
+        td = user.updated_at
