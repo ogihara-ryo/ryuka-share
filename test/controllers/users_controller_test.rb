@@ -6,4 +6,11 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert_template :index
   end
+
+  test 'show ページへ正常にアクセスできること' do
+    @user = users(:one)
+    get :show, id: @user.id
+    assert_response :success
+    assert_template :show
+  end
 end
