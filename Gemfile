@@ -39,6 +39,9 @@ gem 'slim-rails'
 gem 'annotate'
 
 group :development do
+  # n + 1 問題を検出する
+  gem 'bullet'
+
   # コーディングルールの準拠チェックを実施する
   gem 'rubocop'
 end
