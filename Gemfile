@@ -39,6 +39,9 @@ gem 'slim-rails'
 gem 'annotate'
 
 group :development do
+  # エラーページを強化する
+  gem 'better_errors'
+
   # n + 1 問題を検出する
   gem 'bullet'
 
