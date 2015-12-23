@@ -59,6 +59,9 @@ group :development, :test do
   # アプリケーションプリローダー
   gem 'spring'
 
+  # アセットパイプラインのログを表示しない
+  gem 'quiet_assets'
+
   # ファイルシステムの変更イベントを監視する
   gem 'guard'
 
