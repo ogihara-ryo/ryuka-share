@@ -13,5 +13,8 @@ Documentation:
 Style/BlockComments:
   Enabled: false
 
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 AsciiComments:
   Enabled: false
