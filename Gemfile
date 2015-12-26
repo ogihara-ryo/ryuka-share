@@ -79,9 +79,6 @@ group :test do
   # コードのカバレッジを計測する
   gem 'simplecov', require: false
 
-  # テスト時にデータベースを綺麗にする
-  gem 'database_cleaner'
-
   # テストの結果をプログレスバーで表示する
   gem 'minitest-reporters'
 
