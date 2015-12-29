@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Ruby と rails のバージョンは最新でメンテナンスしたい
 ruby '2.3.0'
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5'
 
 # Heroku にデプロイするため、ORDBMS に PostgreSQL を選択する
 gem 'pg'
