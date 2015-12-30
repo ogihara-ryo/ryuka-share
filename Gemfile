@@ -10,6 +10,9 @@ gem 'pg'
 # スタイルシートに SCSS を使用する
 gem 'sass-rails', '~> 5.0'
 
+# 一旦 bootstrap でスタイリングする
+gem 'bootstrap-sass'
+
 # JavaScript のホワイトスペースを削除したり、条件分岐を条件演算子に変更したりで圧縮する
 # config/environments/production.rb の config.assets.js_compressor = :uglifier で活性
 gem 'uglifier', '>= 1.3.0'
