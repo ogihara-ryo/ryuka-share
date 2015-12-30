@@ -34,8 +34,7 @@ module RyukaShare
     config.active_record.raise_in_transactional_callbacks = true
 
     config.generators do |g|
-      g.stylesheets false
-      g.javascripts false
+      g.assets false
       g.helper false
       g.template_engine :slim
     end
