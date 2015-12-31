@@ -1,0 +1,25 @@
+# == Schema Information
+#
+# Table name: profiles
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  last_name  :string
+#  first_name :string
+#  email      :string
+#  telephone  :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+ryo:
+  last_name: Ryo
+  first_name: Ogihara
+  email: ryo@example.com
+  telephone: 08012345678
+
+yuka:
+  last_name: Yuka
+  first_name: Kokoriru
+  email: ryo@example.com
+  telephone: 09012345678

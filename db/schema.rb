@@ -11,10 +11,110 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109135322) do
+ActiveRecord::Schema.define(version: 20151231065113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assigned_schedules_relations", force: :cascade do |t|
+    t.integer "user_id",     null: false
+    t.integer "schedule_id", null: false
+  end
+
+  add_index "assigned_schedules_relations", ["schedule_id"], name: "index_assigned_schedules_relations_on_schedule_id", using: :btree
+  add_index "assigned_schedules_relations", ["user_id"], name: "index_assigned_schedules_relations_on_user_id", using: :btree
+
+  create_table "assigned_tasks_relations", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "task_id", null: false
+  end
+
+  add_index "assigned_tasks_relations", ["task_id"], name: "index_assigned_tasks_relations_on_task_id", using: :btree
+  add_index "assigned_tasks_relations", ["user_id"], name: "index_assigned_tasks_relations_on_user_id", using: :btree
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "from_user_id"
+    t.string   "title"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "messages", ["from_user_id"], name: "index_messages_on_from_user_id", using: :btree
+
+  create_table "messages_relations", force: :cascade do |t|
+    t.integer "user_id",    null: false
+    t.integer "message_id", null: false
+  end
+
+  add_index "messages_relations", ["message_id"], name: "index_messages_relations_on_message_id", using: :btree
+  add_index "messages_relations", ["user_id"], name: "index_messages_relations_on_user_id", using: :btree
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "email"
+    t.string   "telephone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer  "author_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "schedules", ["author_id"], name: "index_schedules_on_author_id", using: :btree
+
+  create_table "task_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "author_id"
+    t.integer  "category_id"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "priority"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "tasks", ["author_id"], name: "index_tasks_on_author_id", using: :btree
+  add_index "tasks", ["category_id"], name: "index_tasks_on_category_id", using: :btree
+
+  create_table "topic_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.integer  "author_id"
+    t.integer  "category_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "topics", ["author_id"], name: "index_topics_on_author_id", using: :btree
+  add_index "topics", ["category_id"], name: "index_topics_on_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "signin_id",                  null: false
@@ -24,4 +124,5 @@ ActiveRecord::Schema.define(version: 20151109135322) do
     t.datetime "updated_at",                 null: false
   end
 
+  add_foreign_key "profiles", "users"
 end
