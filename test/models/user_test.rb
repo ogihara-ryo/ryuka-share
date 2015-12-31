@@ -12,7 +12,7 @@
 
 require 'test_helper'
 
-class GroupTest < ActiveSupport::TestCase
+class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new
   end
