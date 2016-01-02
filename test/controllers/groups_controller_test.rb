@@ -19,16 +19,18 @@ class GroupsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:groups)
+    assert_template :index
   end
 
   test '#new' do
     get :new
     assert_response :success
+    assert_template :new
   end
 
   test '#create' do
     assert_difference('Group.count') do
-      post :create, group: { email: @group.name }
+      post :create, group: { name: @group.name }
     end
 
     assert_redirected_to group_path(assigns(:group))
@@ -37,11 +39,13 @@ class GroupsControllerTest < ActionController::TestCase
   test '#show' do
     get :show, id: @group
     assert_response :success
+    assert_template :show
   end
 
   test '#edit' do
     get :edit, id: @group
     assert_response :success
+    assert_template :edit
   end
 
   test '#update' do
