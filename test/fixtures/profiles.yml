@@ -13,6 +13,7 @@
 #
 
 ryo:
+  user: one
   last_name: Ryo
   first_name: Ogihara
   email: ryo@example.com
