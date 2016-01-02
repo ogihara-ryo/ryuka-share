@@ -8,5 +8,5 @@
 #  updated_at :datetime         not null
 #
 
-sample:
-  name: Sample
+one:
+  name: Group
