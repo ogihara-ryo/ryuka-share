@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: topics
+#
+#  id          :integer          not null, primary key
+#  author_id   :integer
+#  category_id :integer
+#  title       :string
+#  content     :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 

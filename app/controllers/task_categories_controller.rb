@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: task_categories
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class TaskCategoriesController < ApplicationController
   before_action :set_task_category, only: [:show, :edit, :update, :destroy]
 

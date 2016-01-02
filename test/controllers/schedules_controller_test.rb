@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: schedules
+#
+#  id          :integer          not null, primary key
+#  author_id   :integer
+#  start       :datetime
+#  end         :datetime
+#  title       :string
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'test_helper'
 
 class SchedulesControllerTest < ActionController::TestCase

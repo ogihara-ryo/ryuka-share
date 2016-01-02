@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: tasks
+#
+#  id          :integer          not null, primary key
+#  author_id   :integer
+#  category_id :integer
+#  title       :string
+#  description :text
+#  priority    :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 

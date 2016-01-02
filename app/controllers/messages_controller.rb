@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: messages
+#
+#  id           :integer          not null, primary key
+#  from_user_id :integer
+#  title        :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
