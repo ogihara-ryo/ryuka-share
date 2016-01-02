@@ -1,0 +1,29 @@
+h1 Listing profiles
+
+table
+  thead
+    tr
+      th User
+      th Last name
+      th First name
+      th Email
+      th Telephone
+      th
+      th
+      th
+
+  tbody
+    - @profiles.each do |profile|
+      tr
+        td = profile.user
+        td = profile.last_name
+        td = profile.first_name
+        td = profile.email
+        td = profile.telephone
+        td = link_to 'Show', profile
+        td = link_to 'Edit', edit_profile_path(profile)
+        td = link_to 'Destroy', profile, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Profile', new_profile_path

@@ -1,0 +1,21 @@
+h1 Listing task_categories
+
+table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @task_categories.each do |task_category|
+      tr
+        td = task_category.name
+        td = link_to 'Show', task_category
+        td = link_to 'Edit', edit_task_category_path(task_category)
+        td = link_to 'Destroy', task_category, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Task category', new_task_category_path

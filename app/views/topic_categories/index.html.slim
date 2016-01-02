@@ -1,0 +1,21 @@
+h1 Listing topic_categories
+
+table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @topic_categories.each do |topic_category|
+      tr
+        td = topic_category.name
+        td = link_to 'Show', topic_category
+        td = link_to 'Edit', edit_topic_category_path(topic_category)
+        td = link_to 'Destroy', topic_category, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Topic category', new_topic_category_path

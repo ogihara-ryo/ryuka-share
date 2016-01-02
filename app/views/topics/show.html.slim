@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Author:
+  = @topic.author_id
+p
+  strong Category:
+  = @topic.category_id
+p
+  strong Title:
+  = @topic.title
+p
+  strong Content:
+  = @topic.content
+
+= link_to 'Edit', edit_topic_path(@topic)
+'|
+= link_to 'Back', topics_path

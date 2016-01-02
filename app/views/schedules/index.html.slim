@@ -1,0 +1,29 @@
+h1 Listing schedules
+
+table
+  thead
+    tr
+      th Author
+      th Start
+      th End
+      th Title
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @schedules.each do |schedule|
+      tr
+        td = schedule.author_id
+        td = schedule.start
+        td = schedule.end
+        td = schedule.title
+        td = schedule.description
+        td = link_to 'Show', schedule
+        td = link_to 'Edit', edit_schedule_path(schedule)
+        td = link_to 'Destroy', schedule, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Schedule', new_schedule_path

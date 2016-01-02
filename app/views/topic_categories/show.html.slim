@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @topic_category.name
+
+= link_to 'Edit', edit_topic_category_path(@topic_category)
+'|
+= link_to 'Back', topic_categories_path
