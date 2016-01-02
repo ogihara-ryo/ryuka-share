@@ -5,5 +5,7 @@ class TopControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_template :index
+    assert_template :_head
+    assert_template :_header
   end
 end
