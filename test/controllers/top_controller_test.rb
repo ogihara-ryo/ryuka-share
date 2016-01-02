@@ -7,5 +7,6 @@ class TopControllerTest < ActionController::TestCase
     assert_template :index
     assert_template :_head
     assert_template :_header
+    assert_template :_footer
   end
 end
