@@ -13,10 +13,13 @@ class ProfilesControllerTest < ActionController::TestCase
 
   test 'should create profile' do
     assert_difference('Profile.count') do
-      post :create, user_id: @user,
-        profile: { email: @profile.email, first_name: @profile.first_name,
-                   last_name: @profile.last_name, telephone: @profile.telephone,
-                   user_id: @profile.user_id }
+      post :create, user_id: @user, profile: {
+        email: @profile.email,
+        first_name: @profile.first_name,
+        last_name: @profile.last_name,
+        telephone: @profile.telephone,
+        user_id: @profile.user_id
+      }
     end
   end
 
@@ -35,7 +38,7 @@ class ProfilesControllerTest < ActionController::TestCase
       email: @profile.email,
       first_name: @profile.first_name,
       last_name: @profile.last_name,
-      telephone: @profile.telephone,
+      telephone: @profile.telephone
     }
   end
 
