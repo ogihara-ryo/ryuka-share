@@ -17,16 +17,20 @@ ActiveRecord::Schema.define(version: 20151231065113) do
   enable_extension "plpgsql"
 
   create_table "assigned_schedules_relations", force: :cascade do |t|
-    t.integer "user_id",     null: false
-    t.integer "schedule_id", null: false
+    t.integer  "user_id",     null: false
+    t.integer  "schedule_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "assigned_schedules_relations", ["schedule_id"], name: "index_assigned_schedules_relations_on_schedule_id", using: :btree
   add_index "assigned_schedules_relations", ["user_id"], name: "index_assigned_schedules_relations_on_user_id", using: :btree
 
   create_table "assigned_tasks_relations", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "task_id", null: false
+    t.integer  "user_id",    null: false
+    t.integer  "task_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "assigned_tasks_relations", ["task_id"], name: "index_assigned_tasks_relations_on_task_id", using: :btree
@@ -48,8 +52,10 @@ ActiveRecord::Schema.define(version: 20151231065113) do
   add_index "messages", ["from_user_id"], name: "index_messages_on_from_user_id", using: :btree
 
   create_table "messages_relations", force: :cascade do |t|
-    t.integer "user_id",    null: false
-    t.integer "message_id", null: false
+    t.integer  "user_id",    null: false
+    t.integer  "message_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "messages_relations", ["message_id"], name: "index_messages_relations_on_message_id", using: :btree
