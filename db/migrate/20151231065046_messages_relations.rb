@@ -1,4 +1,4 @@
-class MessagesRelations < ActiveRecord::Migration
+class CreateMessagesRelations < ActiveRecord::Migration
   def change
     create_table :messages_relations do |t|
       t.references :user, index: true, null: false
