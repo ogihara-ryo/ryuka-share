@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151231065113) do
+ActiveRecord::Schema.define(version: 20160103164501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 20151231065113) do
 
   add_index "assigned_tasks_relations", ["task_id"], name: "index_assigned_tasks_relations_on_task_id", using: :btree
   add_index "assigned_tasks_relations", ["user_id"], name: "index_assigned_tasks_relations_on_user_id", using: :btree
+
+  create_table "group_members_relations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "group_members_relations", ["group_id"], name: "index_group_members_relations_on_group_id", using: :btree
+  add_index "group_members_relations", ["user_id"], name: "index_group_members_relations_on_user_id", using: :btree
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -130,5 +140,7 @@ ActiveRecord::Schema.define(version: 20151231065113) do
     t.datetime "updated_at",                 null: false
   end
 
+  add_foreign_key "group_members_relations", "groups"
+  add_foreign_key "group_members_relations", "users"
   add_foreign_key "profiles", "users"
 end

@@ -4,6 +4,8 @@ MessagesRelation.delete_all
 MessagesRelation.connection.execute(%|SELECT setval ('messages_id_seq', 1, false)|)
 AssignedTasksRelation.delete_all
 AssignedTasksRelation.connection.execute(%|SELECT setval ('assigned_tasks_relations_id_seq', 1, false)|)
+GroupMembersRelation.delete_all
+GroupMembersRelation.connection.execute(%|SELECT setval ('group_members_relations_id_seq', 1, false)|)
 Schedule.delete_all
 Schedule.connection.execute(%|SELECT setval ('schedules_id_seq', 1, false)|)
 Message.delete_all
@@ -29,7 +31,10 @@ end
 User.first.update(admin: true)
 
 1.upto(4) do |i|
-  Group.create(name: "グループ#{i}")
+  Group.create(
+    name: "グループ#{i}",
+    members: [User.find(i), User.find(i + 1)]
+  )
 end
 
 1.upto(10) do |i|

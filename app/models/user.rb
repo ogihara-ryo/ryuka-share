@@ -13,6 +13,8 @@
 class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   has_many :groups
+  has_many :group_members_relations
+  has_many :groups, through: :group_members_relations, source: :group
   has_many :created_tasks, class_name: :Task
   has_many :assigned_tasks_relations
   has_many :assigned_tasks, through: :assigned_tasks_relations, source: :task
