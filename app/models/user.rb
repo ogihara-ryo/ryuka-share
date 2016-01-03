@@ -11,7 +11,7 @@
 #
 
 class User < ActiveRecord::Base
-  has_one :profile
+  has_one :profile, dependent: :destroy
   has_many :groups
   has_many :created_tasks, class_name: :Task
   has_many :assigned_tasks_relations
