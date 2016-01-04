@@ -4,7 +4,8 @@
 #
 #  id           :integer          not null, primary key
 #  from_user_id :integer
-#  title        :string
+#  subject      :string
+#  body         :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
@@ -29,7 +30,11 @@ class MessagesControllerTest < ActionController::TestCase
 
   test 'should create message' do
     assert_difference('Message.count') do
-      post :create, message: { from_user_id: @message.from_user_id, title: @message.title }
+      post :create, message: {
+        from_user_id: @message.from_user_id,
+        subject: @message.subject,
+        body: @message.body
+      }
     end
 
     assert_redirected_to message_path(assigns(:message))
@@ -46,7 +51,11 @@ class MessagesControllerTest < ActionController::TestCase
   end
 
   test 'should update message' do
-    patch :update, id: @message, message: { from_user_id: @message.from_user_id, title: @message.title }
+    patch :update, id: @message, message: {
+      from_user_id: @message.from_user_id,
+      subject: @message.subject,
+      body: @message.body
+    }
     assert_redirected_to message_path(assigns(:message))
   end
 

@@ -4,7 +4,8 @@
 #
 #  id           :integer          not null, primary key
 #  from_user_id :integer
-#  title        :string
+#  subject      :string
+#  body         :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
@@ -81,6 +82,6 @@ class MessagesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def message_params
-    params.require(:message).permit(:from_user_id, :title)
+    params.require(:message).permit(:from_user_id, :subject, :body)
   end
 end

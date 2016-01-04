@@ -4,7 +4,8 @@
 #
 #  id           :integer          not null, primary key
 #  from_user_id :integer
-#  title        :string
+#  subject      :string
+#  body         :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
@@ -21,7 +22,8 @@ class MessageTest < ActiveSupport::TestCase
     assert_respond_to @message, :from
     assert_respond_to @message, :from_user_id
     assert_respond_to @message, :to
-    assert_respond_to @message, :title
+    assert_respond_to @message, :subject
+    assert_respond_to @message, :body
     assert_respond_to @message, :created_at
     assert_respond_to @message, :updated_at
   end

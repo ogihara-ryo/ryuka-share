@@ -76,7 +76,8 @@ end
 
 1.upto(5) do |i|
   Message.create(
-    title: "タイトル#{i}",
+    subject: "件名#{i}",
+    body: "本文#{i}",
     from_user_id: User.find(i).id,
     to: [User.find(i), User.find(i + 1)]
   )

@@ -4,7 +4,8 @@ table
   thead
     tr
       th From user
-      th Title
+      th Subject
+      th Body
       th
       th
       th
@@ -13,7 +14,8 @@ table
     - @messages.each do |message|
       tr
         td = message.from_user_id
-        td = message.title
+        td = message.subject
+        td = message.body
         td = link_to 'Show', message
         td = link_to 'Edit', edit_message_path(message)
         td = link_to 'Destroy', message, data: {:confirm => 'Are you sure?'}, :method => :delete

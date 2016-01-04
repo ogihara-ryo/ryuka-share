@@ -4,8 +4,11 @@ p
   strong From user:
   = @message.from_user_id
 p
-  strong Title:
-  = @message.title
+  strong Subject:
+  = @message.subject
+p
+  strong Body:
+  = @message.body
 
 = link_to 'Edit', edit_message_path(@message)
 '|
