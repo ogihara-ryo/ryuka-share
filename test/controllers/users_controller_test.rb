@@ -25,4 +25,10 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert_template :show
   end
+
+  test 'new ページへ正常にアクセスできること' do
+    get :new
+    assert_response :success
+    assert_template :new
+  end
 end
