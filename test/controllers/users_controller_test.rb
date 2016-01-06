@@ -13,6 +13,10 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  setup do
+    @user = users(:one)
+  end
+
   test 'index ページへ正常にアクセスできること' do
     get :index
     assert_response :success
@@ -30,5 +34,13 @@ class UsersControllerTest < ActionController::TestCase
     get :new
     assert_response :success
     assert_template :new
+  end
+
+  test '正常にユーザーを追加できること' do
+    assert_difference('User.count') do
+      post :create, user: { signin_id: @user.signin_id, password: @user.password, admin: @user.admin }
+    end
+
+    assert_redirected_to user_path(assigns(:user))
   end
 end
