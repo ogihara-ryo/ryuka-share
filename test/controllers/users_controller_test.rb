@@ -36,7 +36,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_template :new
   end
 
-  test 'create ページへ正常にアクセスできること' do
+  test '正常にユーザーを追加できること' do
     assert_difference('User.count') do
       post :create, user: { signin_id: @user.signin_id, password: @user.password, admin: @user.admin }
     end
