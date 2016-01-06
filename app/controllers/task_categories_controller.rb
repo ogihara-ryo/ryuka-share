@@ -11,28 +11,20 @@
 class TaskCategoriesController < ApplicationController
   before_action :set_task_category, only: [:show, :edit, :update, :destroy]
 
-  # GET /task_categories
-  # GET /task_categories.json
   def index
     @task_categories = TaskCategory.all
   end
 
-  # GET /task_categories/1
-  # GET /task_categories/1.json
   def show
   end
 
-  # GET /task_categories/new
   def new
     @task_category = TaskCategory.new
   end
 
-  # GET /task_categories/1/edit
   def edit
   end
 
-  # POST /task_categories
-  # POST /task_categories.json
   def create
     @task_category = TaskCategory.new(task_category_params)
 
@@ -47,8 +39,6 @@ class TaskCategoriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /task_categories/1
-  # PATCH/PUT /task_categories/1.json
   def update
     respond_to do |format|
       if @task_category.update(task_category_params)
@@ -61,8 +51,6 @@ class TaskCategoriesController < ApplicationController
     end
   end
 
-  # DELETE /task_categories/1
-  # DELETE /task_categories/1.json
   def destroy
     @task_category.destroy
     respond_to do |format|
@@ -73,12 +61,10 @@ class TaskCategoriesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_task_category
     @task_category = TaskCategory.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def task_category_params
     params.require(:task_category).permit(:name)
   end

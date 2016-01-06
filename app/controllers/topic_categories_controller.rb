@@ -11,28 +11,20 @@
 class TopicCategoriesController < ApplicationController
   before_action :set_topic_category, only: [:show, :edit, :update, :destroy]
 
-  # GET /topic_categories
-  # GET /topic_categories.json
   def index
     @topic_categories = TopicCategory.all
   end
 
-  # GET /topic_categories/1
-  # GET /topic_categories/1.json
   def show
   end
 
-  # GET /topic_categories/new
   def new
     @topic_category = TopicCategory.new
   end
 
-  # GET /topic_categories/1/edit
   def edit
   end
 
-  # POST /topic_categories
-  # POST /topic_categories.json
   def create
     @topic_category = TopicCategory.new(topic_category_params)
 
@@ -47,8 +39,6 @@ class TopicCategoriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /topic_categories/1
-  # PATCH/PUT /topic_categories/1.json
   def update
     respond_to do |format|
       if @topic_category.update(topic_category_params)
@@ -61,8 +51,6 @@ class TopicCategoriesController < ApplicationController
     end
   end
 
-  # DELETE /topic_categories/1
-  # DELETE /topic_categories/1.json
   def destroy
     @topic_category.destroy
     respond_to do |format|
@@ -73,12 +61,10 @@ class TopicCategoriesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_topic_category
     @topic_category = TopicCategory.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def topic_category_params
     params.require(:topic_category).permit(:name)
   end
