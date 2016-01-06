@@ -9,6 +9,8 @@ table.table
       th admin
       th created_at
       th update_at
+      th
+      th
 
   tbody
     - @users.each do |user|
@@ -19,6 +21,7 @@ table.table
         td = user.admin
         td = user.created_at
         td = user.updated_at
+        td = link_to 'Show', user
         td = link_to 'Edit', edit_user_path(user)
 
 br
