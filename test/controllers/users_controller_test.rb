@@ -43,4 +43,10 @@ class UsersControllerTest < ActionController::TestCase
 
     assert_redirected_to user_path(assigns(:user))
   end
+
+  test 'edit ページへ正常にアクセスできること' do
+    get :edit, id: @user
+    assert_response :success
+    assert_template :edit
+  end
 end
