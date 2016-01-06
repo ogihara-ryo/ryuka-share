@@ -28,35 +28,24 @@ class TopicCategoriesController < ApplicationController
   def create
     @topic_category = TopicCategory.new(topic_category_params)
 
-    respond_to do |format|
-      if @topic_category.save
-        format.html { redirect_to @topic_category, notice: 'Topic category was successfully created.' }
-        format.json { render :show, status: :created, location: @topic_category }
-      else
-        format.html { render :new }
-        format.json { render json: @topic_category.errors, status: :unprocessable_entity }
-      end
+    if @topic_category.save
+      redirect_to @topic_category, notice: 'Topic category was successfully created.'
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @topic_category.update(topic_category_params)
-        format.html { redirect_to @topic_category, notice: 'Topic category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @topic_category }
-      else
-        format.html { render :edit }
-        format.json { render json: @topic_category.errors, status: :unprocessable_entity }
-      end
+    if @topic_category.update(topic_category_params)
+      redirect_to @topic_category, notice: 'Topic category was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     @topic_category.destroy
-    respond_to do |format|
-      format.html { redirect_to topic_categories_url, notice: 'Topic category was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to topic_categories_url, notice: 'Topic category was successfully destroyed.'
   end
 
   private

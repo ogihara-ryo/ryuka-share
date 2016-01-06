@@ -31,35 +31,24 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
 
-    respond_to do |format|
-      if @topic.save
-        format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
-        format.json { render :show, status: :created, location: @topic }
-      else
-        format.html { render :new }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
-      end
+    if @topic.save
+      redirect_to @topic, notice: 'Topic was successfully created.'
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @topic.update(topic_params)
-        format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
-        format.json { render :show, status: :ok, location: @topic }
-      else
-        format.html { render :edit }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
-      end
+    if @topic.update(topic_params)
+      redirect_to @topic, notice: 'Topic was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     @topic.destroy
-    respond_to do |format|
-      format.html { redirect_to topics_url, notice: 'Topic was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to topics_url, notice: 'Topic was successfully destroyed.'
   end
 
   private

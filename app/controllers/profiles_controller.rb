@@ -30,30 +30,24 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user_id = params[:user_id]
 
-    respond_to do |format|
-      if @profile.save
-        format.html { redirect_to action: :show, user_id: params[:user_id], notice: 'Profile was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @profile.save
+      redirect_to action: :show, user_id: params[:user_id], notice: 'Profile was successfully created.'
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @profile.update(profile_params)
-        format.html { redirect_to action: :show, id: @profile, notice: 'Profile was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @profile.update(profile_params)
+      redirect_to action: :show, id: @profile, notice: 'Profile was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     @profile.destroy
-    respond_to do |format|
-      format.html { redirect_to user_path(params[:user_id]), notice: 'Profile was successfully destroyed.' }
-    end
+    redirect_to user_path(params[:user_id]), notice: 'Profile was successfully destroyed.'
   end
 
   private
