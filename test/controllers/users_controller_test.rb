@@ -49,4 +49,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert_template :edit
   end
+
+  test 'ユーザー情報が正常に更新されること' do
+    patch :update, id: @user, user: {
+      signin_id: @user.signin_id,
+      password: @user.password,
+    }
+    assert_redirected_to user_path(assigns(:user))
+  end
 end
+
