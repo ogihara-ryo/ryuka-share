@@ -11,7 +11,7 @@
 #
 
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit]
+  before_action :set_user, only: [:edit, :update]
 
   def index
     @users = User.all
@@ -34,6 +34,14 @@ class UsersController < ApplicationController
       redirect_to @user, notice: 'ユーザーが正常に作成されました'
     else
       render :new
+    end
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to @user, notice: 'ユーザーが正常に更新されました'
+    else
+      render :edit
     end
   end
 
