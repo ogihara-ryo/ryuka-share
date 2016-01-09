@@ -53,7 +53,7 @@ class UsersControllerTest < ActionController::TestCase
   test 'ユーザーが正常に更新されること' do
     patch :update, id: @user, user: {
       signin_id: 'test_signin_id',
-      password: 'test_password',
+      password: 'test_password'
     }
     assert_redirected_to user_path(assigns(:user))
     @user.reload
@@ -69,4 +69,3 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to users_path
   end
 end
-
