@@ -57,5 +57,13 @@ class UsersControllerTest < ActionController::TestCase
     }
     assert_redirected_to user_path(assigns(:user))
   end
+
+  test 'ユーザーが正常に削除されること' do
+    assert_difference('User.count', -1) do
+      delete :destroy, id: @user
+    end
+
+    assert_redirected_to user_path
+  end
 end
 
