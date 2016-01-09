@@ -50,7 +50,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_template :edit
   end
 
-  test 'ユーザー情報が正常に更新されること' do
+  test 'ユーザーが正常に更新されること' do
     patch :update, id: @user, user: {
       signin_id: 'test_signin_id',
       password: 'test_password',
