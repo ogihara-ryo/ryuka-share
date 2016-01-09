@@ -60,5 +60,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_equal @user.signin_id, 'test_signin_id'
     assert_equal @user.password, 'test_password'
   end
+
+  test 'ユーザーが正常に削除されること' do
+    assert_difference('User.count', -1) do
+      delete :destroy, id: @user
+    end
+
+    assert_redirected_to users_path
+  end
 end
 
