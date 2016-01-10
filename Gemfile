@@ -41,6 +41,9 @@ gem 'slim-rails'
 # 'bundle exec annotate' コマンドで各ファイルに schema 情報などをコメントする
 gem 'annotate'
 
+# Blowfish 暗号を使用する
+gem 'bcrypt'
+
 group :development do
   # エラーページを強化する
   gem 'better_errors'
