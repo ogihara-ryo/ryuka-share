@@ -33,6 +33,8 @@ ja:
       user:
         signin_id: 'ID'
         password: 'パスワード'
+        password_confirmation: 'パスワード(確認)'
+        admin: '管理者'
 
   date:
     formats:
