@@ -16,6 +16,7 @@ require 'test_helper'
 
 class SchedulesControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:admin)
     @schedule = schedules(:one)
   end
 

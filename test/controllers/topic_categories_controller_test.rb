@@ -12,6 +12,7 @@ require 'test_helper'
 
 class TopicCategoriesControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:admin)
     @topic_category = topic_categories(:one)
   end
 

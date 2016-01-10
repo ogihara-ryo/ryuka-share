@@ -15,6 +15,7 @@ require 'test_helper'
 
 class TopicsControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:admin)
     @topic = topics(:one)
   end
 

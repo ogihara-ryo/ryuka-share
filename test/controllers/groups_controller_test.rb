@@ -12,6 +12,7 @@ require 'test_helper'
 
 class GroupsControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:admin)
     @group = groups(:one)
   end
 

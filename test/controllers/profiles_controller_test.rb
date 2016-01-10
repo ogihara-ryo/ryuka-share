@@ -16,18 +16,18 @@ require 'test_helper'
 
 class ProfilesControllerTest < ActionController::TestCase
   setup do
-    @user = users(:one)
-    @profile = profiles(:ryo)
+    @profile = profiles(:admin)
+    sign_in @profile.user
   end
 
   test 'should get new' do
-    get :new, user_id: @user
+    get :new, user_id: @profile.user
     assert_response :success
   end
 
   test 'should create profile' do
     assert_difference('Profile.count') do
-      post :create, user_id: @user, profile: {
+      post :create, user_id: @profile.user, profile: {
         email: @profile.email,
         first_name: @profile.first_name,
         last_name: @profile.last_name,
@@ -38,17 +38,17 @@ class ProfilesControllerTest < ActionController::TestCase
   end
 
   test 'should show profile' do
-    get :show, user_id: @user
+    get :show, user_id: @profile.user
     assert_response :success
   end
 
   test 'should get edit' do
-    get :edit, user_id: @user, id: @profile
+    get :edit, user_id: @profile.user, id: @profile
     assert_response :success
   end
 
   test 'should update profile' do
-    patch :update, user_id: @user, id: @profile, profile: {
+    patch :update, user_id: @profile.user, id: @profile, profile: {
       email: @profile.email,
       first_name: @profile.first_name,
       last_name: @profile.last_name,
@@ -58,7 +58,7 @@ class ProfilesControllerTest < ActionController::TestCase
 
   test 'should destroy profile' do
     assert_difference('Profile.count', -1) do
-      delete :destroy, user_id: @user
+      delete :destroy, user_id: @profile.user
     end
   end
 end

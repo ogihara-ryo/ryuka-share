@@ -12,6 +12,7 @@ require 'test_helper'
 
 class TaskCategoriesControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:admin)
     @task_category = task_categories(:one)
   end
 

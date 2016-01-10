@@ -12,15 +12,16 @@
 #  updated_at :datetime         not null
 #
 
-ryo:
-  user: one
+admin:
+  user: admin
   last_name: Ryo
   first_name: Ogihara
   email: ryo@example.com
   telephone: 08012345678
 
-yuka:
+not_admin:
+  user: not_admin
   last_name: Yuka
   first_name: Kokoriru
-  email: ryo@example.com
+  email: yuka@example.com
   telephone: 09012345678

@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class TopControllerTest < ActionController::TestCase
+  def setup
+    sign_in users(:admin)
+  end
+
   test 'index ページへ正常にアクセスできること' do
     get :index
     assert_response :success

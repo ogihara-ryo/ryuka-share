@@ -15,7 +15,8 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   setup do
-    @user = users(:one)
+    @user = users(:admin)
+    sign_in @user
   end
 
   test 'index ページへ正常にアクセスできること' do
@@ -25,7 +26,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test 'show ページへ正常にアクセスできること' do
-    @user = users(:one)
+    @user = users(:admin)
     get :show, id: @user.id
     assert_response :success
     assert_template :show
