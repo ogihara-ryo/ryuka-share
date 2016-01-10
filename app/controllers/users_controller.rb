@@ -2,12 +2,13 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  signin_id  :string           not null
-#  password   :string           not null
-#  admin      :boolean          default(FALSE), not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  signin_id       :string           not null
+#  password_digest :string           not null
+#  admin           :boolean          default(FALSE), not null
+#  remember_token  :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 
 class UsersController < ApplicationController

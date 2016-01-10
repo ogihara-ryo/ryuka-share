@@ -3,3 +3,7 @@ header
     .container
       .navbar-header
         = link_to RyukaShare::Application.config.title, root_path, class: 'navbar-brand'
+
+      - if signed_in?
+        ul.nav.navbar-nav.navbar-right
+          li = link_to t(:label_signout), signout_path, method: :delete, class: 'glyphicon glyphicon-log-out'

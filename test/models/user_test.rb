@@ -2,12 +2,13 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  signin_id  :string           not null
-#  password   :string           not null
-#  admin      :boolean          default(FALSE), not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  signin_id       :string           not null
+#  password_digest :string           not null
+#  admin           :boolean          default(FALSE), not null
+#  remember_token  :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 
 require 'test_helper'
@@ -21,6 +22,7 @@ class UserTest < ActiveSupport::TestCase
     assert_respond_to @user, :id
     assert_respond_to @user, :signin_id
     assert_respond_to @user, :password
+    assert_respond_to @user, :password_confirmation
     assert_respond_to @user, :admin
     assert_respond_to @user, :created_at
     assert_respond_to @user, :updated_at

@@ -2,6 +2,9 @@
 #
 #              Prefix Verb   URI Pattern                            Controller#Action
 #                root GET    /                                      top#index
+#              signin GET    /signin(.:format)                      sessions#new
+#                     POST   /signin(.:format)                      sessions#create
+#             signout DELETE /signout(.:format)                     sessions#destroy
 #        user_profile POST   /users/:user_id/profile(.:format)      profiles#create
 #    new_user_profile GET    /users/:user_id/profile/new(.:format)  profiles#new
 #   edit_user_profile GET    /users/:user_id/profile/edit(.:format) profiles#edit
@@ -77,6 +80,10 @@
 
 Rails.application.routes.draw do
   root 'top#index'
+
+  get 'signin' => 'sessions#new'
+  post 'signin' => 'sessions#create'
+  delete 'signout' => 'sessions#destroy'
 
   resources :users do
     resource :profile

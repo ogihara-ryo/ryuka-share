@@ -134,12 +134,15 @@ ActiveRecord::Schema.define(version: 20160103164501) do
   add_index "topics", ["category_id"], name: "index_topics_on_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "signin_id",                  null: false
-    t.string   "password",                   null: false
-    t.boolean  "admin",      default: false, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "signin_id",                       null: false
+    t.string   "password_digest",                 null: false
+    t.boolean  "admin",           default: false, null: false
+    t.string   "remember_token"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
   add_foreign_key "group_members_relations", "groups"
   add_foreign_key "group_members_relations", "users"

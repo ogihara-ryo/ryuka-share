@@ -5,5 +5,9 @@ html
 
   body
     == render 'header'
-    .container == yield
+
+    .container
+      == render 'flash'
+      == yield
+
     == render 'footer'

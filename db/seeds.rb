@@ -26,7 +26,11 @@ User.delete_all
 User.connection.execute(%|SELECT setval ('users_id_seq', 1, false)|)
 
 1.upto(10) do |i|
-  User.create(signin_id: "ユーザー#{i}", password: 'password')
+  User.create(
+    signin_id: "user#{i}",
+    password: 'password',
+    password_confirmation: 'password'
+  )
 end
 User.first.update(admin: true)
 

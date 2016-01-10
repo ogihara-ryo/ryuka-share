@@ -2,12 +2,13 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  signin_id  :string           not null
-#  password   :string           not null
-#  admin      :boolean          default(FALSE), not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  signin_id       :string           not null
+#  password_digest :string           not null
+#  admin           :boolean          default(FALSE), not null
+#  remember_token  :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 
 class User < ActiveRecord::Base
@@ -25,4 +26,22 @@ class User < ActiveRecord::Base
   has_many :created_schedules, class_name: :Schedule
   has_many :assigned_schedules_relations
   has_many :assigned_schedules, through: :assigned_schedules_relations, source: :schedule
+
+  has_secure_password
+
+  before_create :create_remember_token
+
+  def self.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def self.encrypt(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  private
+
+  def create_remember_token
+    self.remember_token = User.encrypt(User.new_remember_token)
+  end
 end
