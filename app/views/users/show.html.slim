@@ -21,6 +21,9 @@ dl.dl-horizontal
     strong updated_at
   dd = @user.updated_at
 
+
 = link_to 'Edit', edit_user_path(@user)
+'|
+= link_to 'Profile', user_profile_path(@user)
 '|
 = link_to 'Back', users_path
