@@ -1,6 +1,6 @@
 h1 Users
 
-table.table
+table.list
   thead
     tr
       th id
@@ -20,6 +20,7 @@ table.table
         td = user.admin
         td = user.created_at
         td = user.updated_at
+        / TODO: 行全体を show リンクとし、 show ボタンを削除
         td = link_to 'Show', user
         td = link_to 'Edit', edit_user_path(user)
         td = link_to 'Destroy', user, data: {:confirm => '本当に削除しますか？'}, :method => :delete
