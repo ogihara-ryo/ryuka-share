@@ -16,3 +16,9 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+table.list {
+  @extend .table;
+  @extend .table-striped;
+  @extend .table-hover;
+}
