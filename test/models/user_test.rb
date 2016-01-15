@@ -21,6 +21,7 @@ class UserTest < ActiveSupport::TestCase
   test '各メンバーに応答すること' do
     assert_respond_to @user, :id
     assert_respond_to @user, :signin_id
+    assert_respond_to @user, :password_digest
     assert_respond_to @user, :password
     assert_respond_to @user, :password_confirmation
     assert_respond_to @user, :admin
