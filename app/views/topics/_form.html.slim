@@ -6,16 +6,20 @@
         - @topic.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :author_id
-    = f.number_field :author_id
-  .field
-    = f.label :category_id
-    = f.number_field :category_id
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :content
-    = f.text_area :content
-  .actions = f.submit
+  .well
+    .form-group
+      = f.label :author_id
+      = f.number_field :author_id, class: 'form-control'
+
+    .form-group
+      = f.label :category_id
+      = f.number_field :category_id, class: 'form-control'
+
+    .form-group
+      = f.text_field :title, class: 'form-control', placeholder: t('activerecord.attributes.topic.title')
+
+    .form-group
+      = f.text_area :content, class: 'form-control', placeholder: t('activerecord.attributes.topic.content')
+
+    .form-group
+      = f.submit class: 'btn btn-primary'

@@ -6,16 +6,16 @@
         - @profile.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :last_name
-    = f.text_field :last_name
-  .field
-    = f.label :first_name
-    = f.text_field :first_name
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :telephone
-    = f.text_field :telephone
-  .actions = f.submit
+  .well
+    .form-inline.form-group
+        = f.text_field :last_name, class: 'form-control', placeholder: t('activerecord.attributes.user.profile.last_name')
+        = f.text_field :first_name, class: 'form-control', placeholder: t('activerecord.attributes.user.profile.first_name')
+
+    .form-group
+      = f.text_field :email, class: 'form-control', placeholder: t('activerecord.attributes.user.profile.email')
+
+    .form-group
+      = f.text_field :telephone, class: 'form-control', placeholder: t('activerecord.attributes.user.profile.telephone')
+
+    .form-group
+      = f.submit class: 'btn btn-primary'

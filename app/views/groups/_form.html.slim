@@ -6,7 +6,10 @@
         - @group.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .actions = f.submit
+  .well
+    .form-inline
+      .form-group
+        = f.text_field :name, class: 'form-control', placeholder: t('activerecord.attributes.group.name')
+
+      .form-group
+        = f.submit class: 'btn btn-primary'

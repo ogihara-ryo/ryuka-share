@@ -35,6 +35,33 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード(確認)'
         admin: '管理者'
+        profile:
+          last_name: '名前'
+          first_name: '苗字'
+          email: 'メールアドレス'
+          telephone: '電話番号'
+      group:
+        name: 'グループ名'
+      message:
+        from_user_id: 'ID'
+        subject: '件名'
+        body: '本文'
+      schedule:
+        author_id: 'ID'
+        start: '開始'
+        end: '終了'
+        title: 'タイトル'
+        description: '内容'
+      task_category:
+        name: 'タスクカテゴリ名'
+      task: 
+        title: 'タイトル'
+        description: '内容'
+      topic_category:
+        name: 'トピックカテゴリ名'
+      topic:
+        title: 'タイトル'
+        content: '内容'
 
   date:
     formats:

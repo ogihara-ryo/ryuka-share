@@ -6,19 +6,24 @@
         - @schedule.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :author_id
-    = f.number_field :author_id
-  .field
-    = f.label :start
-    = f.datetime_select :start
-  .field
-    = f.label :end
-    = f.datetime_select :end
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .actions = f.submit
+  .well
+    .form-group
+      = f.label :author_id
+      = f.number_field :author_id, class: 'form-control', placeholder: t('activerecord.attributes.schedule.author_id')
+
+    .form-group
+      = f.label :start
+      = f.datetime_select :start, class: 'form-control', placeholder: t('activerecord.attributes.schedule.start')
+
+    .form-group
+      = f.label :end
+      = f.datetime_select :end, class: 'form-control', placeholder: t('activerecord.attributes.schedule.end')
+
+    .form-group
+      = f.text_field :title, class: 'form-control', placeholder: t('activerecord.attributes.schedule.title')
+
+    .form-group
+      = f.text_area :description, class: 'form-control', placeholder: t('activerecord.attributes.schedule.description')
+
+    .form-group
+      = f.submit class: 'btn btn-primary'
