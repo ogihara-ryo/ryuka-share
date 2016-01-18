@@ -1,25 +1,26 @@
-= form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      ul
-        - @user.errors.full_messages.each do |message|
-          li = message
+.form
+  = form_for @user do |f|
+    - if @user.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+        ul
+          - @user.errors.full_messages.each do |message|
+            li = message
 
-  .field
-    = f.label :signin_id
-    = f.text_field :signin_id
+    .well
+      .form-inline
+        .form-group
+          = f.text_field :signin_id, class: 'form-control', placeholder: t('activerecord.attributes.user.signin_id')
 
-  .field
-    = f.label :password
-    = f.text_field :password
+        .form-group
+          = f.text_field :password, class: 'form-control', placeholder: t('activerecord.attributes.user.password')
 
-  .field
-    = f.label :password_confirmation
-    = f.text_field :password_confirmation
+        .form-group
+          = f.text_field :password_confirmation, class: 'form-control', placeholder: t('activerecord.attributes.user.password_confirmation')
 
-  .field
-    = f.label :admin
-    = f.check_box :admin
+        .form-group
+          = f.label :admin
+          = f.check_box :admin
 
-  .actions = f.submit
+        .form-group
+          = f.submit class: 'btn btn-primary'
