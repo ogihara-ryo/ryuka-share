@@ -1,5 +1,7 @@
 AllCops:
-  RunRailsCops: true
+  Rails:
+    Enabled: true
+
   Exclude:
     - db/schema.rb
     - bin/**/*
