@@ -60,6 +60,8 @@ ja:
       topic_category:
         name: 'トピックカテゴリ名'
       topic:
+        author_id: '投稿者'
+        category_id: 'カテゴリ'
         title: 'タイトル'
         content: '内容'
 
