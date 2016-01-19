@@ -46,7 +46,7 @@ end
     last_name: "名前#{i}",
     first_name: "苗字#{i}",
     email: "email#{i}@example.com",
-    telephone: "#{i}",
+    telephone: "080-0000-00#{format('%02d', i)}",
     user: User.find(i)
   )
 end
