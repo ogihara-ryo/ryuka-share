@@ -1,10 +1,5 @@
-AllCops:
-  Rails:
-    Enabled: true
-
-  Exclude:
-    - db/schema.rb
-    - bin/**/*
+Rails:
+  Enabled: true
 
 Metrics/LineLength:
   Max: 128
@@ -20,3 +15,8 @@ Style/ClassAndModuleChildren:
 
 AsciiComments:
   Enabled: false
+
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - bin/**/*
