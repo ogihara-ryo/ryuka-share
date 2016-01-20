@@ -14,7 +14,7 @@ table.list
   tbody
     - @topics.each do |topic|
       tr
-        td = topic.author_id
+        td = topic.author.profile.full_name
         td = topic.category_id
         td = topic.title
         td = topic.content
