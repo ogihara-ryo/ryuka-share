@@ -3,10 +3,10 @@ h1 Listing topics
 table.list
   thead
     tr
-      th Author
-      th Category
-      th Title
-      th Content
+      th = t 'activerecord.attributes.topic.author_id'
+      th = t 'activerecord.attributes.topic.category_id'
+      th = t 'activerecord.attributes.topic.title'
+      th = t 'activerecord.attributes.topic.content'
       th
       th
       th
@@ -14,7 +14,7 @@ table.list
   tbody
     - @topics.each do |topic|
       tr
-        td = topic.author_id
+        td = topic.author.profile.full_name
         td = topic.category_id
         td = topic.title
         td = topic.content
