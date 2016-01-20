@@ -43,8 +43,8 @@ end
 
 1.upto(10) do |i|
   Profile.create(
-    last_name: "名前#{i}",
-    first_name: "苗字#{i}",
+    last_name: "苗字#{i}",
+    first_name: "名前#{i}",
     email: "email#{i}@example.com",
     telephone: "#{i}",
     user: User.find(i)
