@@ -3,10 +3,10 @@ h1 Listing topics
 table.list
   thead
     tr
-      th Author
-      th Category
-      th Title
-      th Content
+      th = label :author_id, t('activerecord.attributes.topic.author_id')
+      th = label :category_id, t('activerecord.attributes.topic.category_id')
+      th = label :title, t('activerecord.attributes.topic.title')
+      th = label :content, t('activerecord.attributes.topic.content')
       th
       th
       th
