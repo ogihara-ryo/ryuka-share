@@ -3,9 +3,9 @@ h1 Listing messages
 table.list
   thead
     tr
-      th From user
-      th Subject
-      th Body
+      th = t 'activerecord.attributes.message.from_user_id'
+      th = t 'activerecord.attributes.message.subject'
+      th = t 'activerecord.attributes.message.body'
       th
       th
       th
@@ -13,7 +13,7 @@ table.list
   tbody
     - @messages.each do |message|
       tr
-        td = message.from_user_id
+        td = message.from.profile.full_name
         td = message.subject
         td = message.body
         td = link_to 'Show', message

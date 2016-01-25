@@ -14,8 +14,13 @@ require 'test_helper'
 
 class MessagesControllerTest < ActionController::TestCase
   setup do
-    sign_in users(:admin)
+    binding.pry
+    user = users(:admin)
+    profile = profiles(:admin)
+    profile.update(user: user)
     @message = messages(:one)
+    @message.update(from: user)
+    sign_in user
   end
 
   test 'should get index' do
