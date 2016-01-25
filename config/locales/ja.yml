@@ -49,6 +49,7 @@ ja:
         from_user_id: '送信者'
         subject: '件名'
         body: '本文'
+        to: '宛先'
 
       schedule:
         author_id: 'ID'

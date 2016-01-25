@@ -4,6 +4,11 @@ p
   strong From user:
   = @message.from_user_id
 p
+  strong To:
+  - @message.to.each do |to|
+    ul type= "square"
+      li = to.profile.full_name
+p
   strong Subject:
   = @message.subject
 p

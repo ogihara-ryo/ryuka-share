@@ -53,7 +53,7 @@ class MessagesController < ApplicationController
   private
 
   def set_message
-    @message = Message.find(params[:id])
+    @message = Message.includes(to: :profile).find(params[:id])
   end
 
   def message_params
