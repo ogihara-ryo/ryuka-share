@@ -14,7 +14,6 @@ require 'test_helper'
 
 class MessagesControllerTest < ActionController::TestCase
   setup do
-    binding.pry
     user = users(:admin)
     profile = profiles(:admin)
     profile.update(user: user)
