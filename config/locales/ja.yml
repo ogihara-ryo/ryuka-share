@@ -61,8 +61,11 @@ ja:
         name: 'タスクカテゴリ名'
 
       task:
+        author_id: '登録者'
+        category_id: 'カテゴリ'
         title: 'タイトル'
         description: '内容'
+        priority: '優先順位'
 
       topic_category:
         name: 'トピックカテゴリ名'
