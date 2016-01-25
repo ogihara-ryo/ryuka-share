@@ -3,11 +3,11 @@ h1 Listing tasks
 table.list
   thead
     tr
-      th Author
-      th Category
-      th Title
-      th Description
-      th Priority
+      th = t 'activerecord.attributes.task.author_id'
+      th = t 'activerecord.attributes.task.category_id'
+      th = t 'activerecord.attributes.task.title'
+      th = t 'activerecord.attributes.task.description'
+      th = t 'activerecord.attributes.task.priority'
       th
       th
       th
@@ -15,7 +15,7 @@ table.list
   tbody
     - @tasks.each do |task|
       tr
-        td = task.author_id
+        td = task.author.profile.full_name
         td = task.category_id
         td = task.title
         td = task.description
