@@ -3,6 +3,11 @@ p#notice = notice
 p
   strong Name:
   = @group.name
+p
+  strong Member:
+  - @group.members.each do |member|
+    ul type= "square"
+      li = member.profile.full_name
 
 = link_to 'Edit', edit_group_path(@group)
 '|

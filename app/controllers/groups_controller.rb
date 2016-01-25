@@ -51,7 +51,7 @@ class GroupsController < ApplicationController
   private
 
   def set_group
-    @group = Group.find(params[:id])
+    @group = Group.includes(members: :profile).find(params[:id])
   end
 
   def group_params
