@@ -46,7 +46,7 @@ ja:
         name: 'グループ名'
 
       message:
-        from_user_id: 'ID'
+        from_user_id: '送信者'
         subject: '件名'
         body: '本文'
 
