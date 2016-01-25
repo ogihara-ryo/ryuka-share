@@ -3,6 +3,12 @@ p#notice = notice
 p
   strong Author:
   = @schedule.author_id
+
+p
+  strong Member:
+  - @schedule.assigns.each do |assign|
+    ul type= "square"
+      li = assign.profile.full_name
 p
   strong Start:
   = @schedule.start

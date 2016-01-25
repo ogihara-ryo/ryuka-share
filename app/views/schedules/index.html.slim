@@ -3,19 +3,18 @@ h1 Listing schedules
 table.list
   thead
     tr
-      th Author
-      th Start
-      th End
-      th Title
-      th Description
-      th
+      th = t 'activerecord.attributes.schedule.author_id'
+      th = t 'activerecord.attributes.schedule.start'
+      th = t 'activerecord.attributes.schedule.end'
+      th = t 'activerecord.attributes.schedule.title'
+      th = t 'activerecord.attributes.schedule.description'
       th
       th
 
   tbody
     - @schedules.each do |schedule|
       tr
-        td = schedule.author_id
+        td = schedule.author.profile.full_name
         td = schedule.start
         td = schedule.end
         td = schedule.title

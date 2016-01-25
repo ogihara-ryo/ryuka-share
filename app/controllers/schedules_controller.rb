@@ -16,7 +16,7 @@ class SchedulesController < ApplicationController
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
 
   def index
-    @schedules = Schedule.all
+    @schedules = Schedule.all.includes(author: :profile)
   end
 
   def show
@@ -55,7 +55,7 @@ class SchedulesController < ApplicationController
   private
 
   def set_schedule
-    @schedule = Schedule.find(params[:id])
+    @schedule = Schedule.includes(assigns: :profile).find(params[:id])
   end
 
   def schedule_params
