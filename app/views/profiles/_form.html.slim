@@ -8,14 +8,14 @@
 
   .well
     .form-inline.form-group
-        = f.text_field :last_name, class: 'form-control', placeholder: t('activerecord.attributes.user.profile.last_name')
-        = f.text_field :first_name, class: 'form-control', placeholder: t('activerecord.attributes.user.profile.first_name')
+        = f.text_field :last_name, class: 'form-control', placeholder: t('activerecord.attributes.profile.last_name')
+        = f.text_field :first_name, class: 'form-control', placeholder: t('activerecord.attributes.profile.first_name')
 
     .form-group
-      = f.text_field :email, class: 'form-control', placeholder: t('activerecord.attributes.user.profile.email')
+      = f.text_field :email, class: 'form-control', placeholder: t('activerecord.attributes.profile.email')
 
     .form-group
-      = f.text_field :telephone, class: 'form-control', placeholder: t('activerecord.attributes.user.profile.telephone')
+      = f.text_field :telephone, class: 'form-control', placeholder: t('activerecord.attributes.profile.telephone')
 
     .form-group
       = f.submit class: 'btn btn-primary'
