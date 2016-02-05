@@ -1,26 +1,28 @@
 h1 Listing topics
 
-table.list
-  thead
-    tr
-      th = t 'activerecord.attributes.topic.author_id'
-      th = t 'activerecord.attributes.topic.category_id'
-      th = t 'activerecord.attributes.topic.title'
-      th = t 'activerecord.attributes.topic.content'
-      th
-      th
-      th
-
-  tbody
-    - @topics.each do |topic|
+- @categories.each do |category|
+  h2 = category.name
+  table.list
+    thead
       tr
-        td = topic.author.profile.full_name
-        td = topic.category_id
-        td = topic.title
-        td = topic.content
-        td = link_to 'Show', topic
-        td = link_to 'Edit', edit_topic_path(topic)
-        td = link_to 'Destroy', topic, data: {:confirm => 'Are you sure?'}, :method => :delete
+        th = t 'activerecord.attributes.topic.author_id'
+        th = t 'activerecord.attributes.topic.category_id'
+        th = t 'activerecord.attributes.topic.title'
+        th = t 'activerecord.attributes.topic.content'
+        th
+        th
+        th
+
+    tbody
+      - category.topics.includes(author: :profile).each do |topic|
+        tr
+          td = topic.author.profile.full_name
+          td = topic.category_id
+          td = topic.title
+          td = topic.content
+          td = link_to 'Show', topic
+          td = link_to 'Edit', edit_topic_path(topic)
+          td = link_to 'Destroy', topic, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

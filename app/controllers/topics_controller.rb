@@ -16,6 +16,7 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.all.includes(author: :profile)
+    @categories = TopicCategory.all
   end
 
   def show
